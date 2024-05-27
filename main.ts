@@ -1,10 +1,15 @@
 input.onButtonPressed(Button.A, function () {
-    knuffelen += 5
+    if (dood == 0) {
+        knuffelen += 5
+    }
 })
 input.onButtonPressed(Button.B, function () {
-    voeden += 5
+    if (dood == 0) {
+        voeden += 5
+    }
 })
 let dood = 0
+dood = 0
 let knuffelen = 20
 let voeden = 20
 basic.forever(function () {
@@ -14,6 +19,7 @@ basic.forever(function () {
 })
 basic.forever(function () {
     if (knuffelen < 0 && voeden < 0) {
+        dood = 1
         basic.showIcon(IconNames.Asleep)
     }
     if (knuffelen < 10 && voeden < 10 && (knuffelen > 0 && voeden > 0)) {
